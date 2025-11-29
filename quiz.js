@@ -2,22 +2,20 @@ function checkAnswer () {
     const feedbackAnswer = document.getElementById("feedback");
     
     // Retrieve the User's Answer, (from the checked radio)
-    const userAnswer = document.querySelector("input[name='quiz']:checked");
+    const rawValue = document.querySelector("input[name='quiz']:checked");
 
     // Check if answer was selected
-    if (!userAnswer) {
+    if (!rawValue) {
         feedbackAnswer.innerHTML = "Please select an answer first!";
         return;
     }
 
-    // Retrieve actual value from the selected element
-    const actualValue = userAnswer.value;
-
     // Base Answer
     const correctAnswer = "4";
+    const userAnswer = rawValue.value;
 
     // Compare the User's Answer with the Correct Answer:
-    if (actualValue === correctAnswer) {
+    if (userAnswer === correctAnswer) {
         feedbackAnswer.innerHTML = "Correct! Well done.";
     } else {
         feedbackAnswer.innerHTML = "That's incorrect. Try again!";
